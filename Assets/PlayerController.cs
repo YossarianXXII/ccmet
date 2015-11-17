@@ -3,37 +3,26 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public KeyCode thrust;
-	public KeyCode left;
-	public KeyCode right;
 
-	public KeyCode shoot;
-	public KeyCode special;
+	public GlobalC gl;
 
 
-	public GameObject player;
 
 	private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
-		//Set default controls
-		thrust = KeyCode.UpArrow;
-		left = KeyCode.LeftArrow;
-		right = KeyCode.RightArrow;
-		shoot = KeyCode.Z;
-		special = KeyCode.X;
 		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(thrust)){
+		if(Input.GetKey(gl.P1_thrust)){
 			rb.AddRelativeForce(-Vector3.forward *30f);
 		}
-		if(Input.GetKey(left)){
+		if(Input.GetKey(gl.P1_left)){
 			rb.AddRelativeTorque(-Vector3.up *10f);
 		}
-		if(Input.GetKey(right)){
+		if(Input.GetKey(gl.P1_right)){
 			rb.AddRelativeTorque(Vector3.up * 10f);
 		}
 	}
